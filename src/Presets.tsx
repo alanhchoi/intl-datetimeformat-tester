@@ -8,6 +8,7 @@ import {
   useState,
 } from 'react';
 import 'twin.macro';
+import YAML from 'yaml';
 import AddPresetDialog from './AddPresetDialog';
 import Button from './components/Button';
 import Card from './components/Card';
@@ -168,9 +169,12 @@ const Presets: FC<Props> = ({
 }) => {
   const [presets, setPresets] = useState<Record<string, Preset>>(() => {
     try {
-      const presetsInLocalStorage =
-        window.localStorage.getItem('presets') || defaultPresetsYaml;
-      return JSON.parse(presetsInLocalStorage);
+      const presetsInLocalStorage = window.localStorage.getItem('presets');
+
+      if (presetsInLocalStorage) {
+        return JSON.parse(presetsInLocalStorage);
+      }
+      return YAML.parse(defaultPresetsYaml);
     } catch {
       return {};
     }
