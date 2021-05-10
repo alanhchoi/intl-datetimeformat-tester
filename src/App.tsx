@@ -13,6 +13,7 @@ import Select from './components/Select';
 import Heading from './components/Heading';
 import Input from './components/Input';
 import Link from './components/Link';
+import Button from './components/Button';
 
 type FormFieldValues = {
   mode: 'default' | 'range';
@@ -77,7 +78,7 @@ const Layout = styled.div`
 `;
 
 const Form = styled.form`
-  ${tw`flex flex-col space-y-8`}
+  ${tw`flex flex-col space-y-10`}
 
   grid-area: form;
 `;
@@ -139,6 +140,8 @@ const Results = styled.section`
   grid-area: results;
   min-width: 0;
 `;
+
+const DateTimeInput = tw(Input)`w-44`;
 
 const OptionSelect = tw(Select)`font-mono font-bold`;
 
@@ -270,6 +273,12 @@ const App = () => {
     );
   }, [formatOptions, preset]);
 
+  const clearAllSelections = () => {
+    const { mode, date, time, endDate, endTime } = getValues();
+    reset({ mode, date, time, endDate, endTime });
+    setPreset(null);
+  };
+
   return (
     <Container>
       <Heading tw="mb-8 whitespace-nowrap">Intl.DateTimeFormat Tester</Heading>
@@ -315,22 +324,20 @@ const App = () => {
                 <Label htmlFor="date" tw="w-auto flex-1">
                   {mode === 'default' ? 'Date' : 'Start'}
                 </Label>
-                <Input
+                <DateTimeInput
                   variant="solid"
                   id="date"
                   {...register('date')}
                   type="date"
                   aria-label="Date"
-                  tw="w-40"
                 />
-                <Input
+                <DateTimeInput
                   variant="solid"
                   id="time"
                   {...register('time')}
                   type="time"
                   step="1"
                   aria-label="Time"
-                  tw="w-40"
                 />
               </DateTimeRow>
 
@@ -339,21 +346,19 @@ const App = () => {
                   <Label htmlFor="endDate" tw="w-auto flex-1">
                     End
                   </Label>
-                  <Input
+                  <DateTimeInput
                     variant="solid"
                     id="endDate"
                     {...register('endDate')}
                     type="date"
-                    tw="w-40"
                   />
-                  <Input
+                  <DateTimeInput
                     variant="solid"
                     id="time"
                     {...register('endTime')}
                     type="time"
                     step="1"
                     aria-label="Time"
-                    tw="w-40"
                   />
                 </DateTimeRow>
               )}
@@ -361,16 +366,26 @@ const App = () => {
           </DateSection>
 
           <FormatOptions>
-            <SectionHeading tw="w-full mb-3 flex justify-between items-baseline">
-              Format Options
-              <span tw="text-base font-normal">
-                Learn more about these options at{' '}
-                <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#parameters">
-                  MDN Web Docs
-                </Link>
-                .
-              </span>
-            </SectionHeading>
+            <header tw="flex justify-between w-full mb-2">
+              <SectionHeading tw="w-full mb-3 flex flex-col">
+                Format Options
+                <div tw="text-base font-normal">
+                  Learn more about these options at{' '}
+                  <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#parameters">
+                    MDN Web Docs
+                  </Link>
+                  .
+                </div>
+              </SectionHeading>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={clearAllSelections}
+              >
+                Clear all selections
+              </Button>
+            </header>
             <div>
               {renderSelect({
                 label: 'dateStyle',

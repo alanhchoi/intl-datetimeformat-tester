@@ -268,7 +268,7 @@ const Presets: FC<Props> = ({
         tw="w-full font-bold"
         aria-labelledby="presets__title"
         defaultValue=""
-        value={selectedPresetName}
+        value={selectedPresetName || ''}
         onChange={(event) => {
           const presetName = event.target.value;
           const selectedPreset = presets[presetName];

@@ -8,11 +8,18 @@ const styles = {
   ghost: tw`hover:bg-gray-100 border-0`,
 };
 
+const sizes = {
+  base: tw`px-4 h-11 text-base`,
+  sm: tw`px-3 h-9 text-sm`,
+};
+
 const Button = styled.button<{
   variant?: 'outline' | 'filled' | 'ghost' | 'cta';
+  size?: 'base' | 'sm';
 }>`
-  ${tw`box-border rounded px-4 h-11 text-base font-medium text-gray-800 flex-none disabled:(opacity-50 cursor-default)`}
+  ${tw`box-border rounded font-medium text-gray-800 flex-none disabled:(opacity-50 cursor-default)`}
   ${({ variant = 'outline' }) => styles[variant]}
+  ${({ size = 'base' }) => sizes[size]}
 `;
 
 export default Button;
