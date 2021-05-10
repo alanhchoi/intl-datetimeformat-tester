@@ -1,3 +1,8 @@
+import '@formatjs/intl-datetimeformat/polyfill';
+import '@formatjs/intl-datetimeformat/locale-data/en-US';
+import '@formatjs/intl-datetimeformat/locale-data/ko';
+import '@formatjs/intl-datetimeformat/add-all-tz';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
