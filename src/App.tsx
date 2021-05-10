@@ -77,7 +77,7 @@ const Layout = styled.div`
 `;
 
 const Form = styled.form`
-  ${tw`flex flex-col gap-y-8`}
+  ${tw`flex flex-col space-y-8`}
 
   grid-area: form;
 `;
@@ -321,6 +321,7 @@ const App = () => {
                   {...register('date')}
                   type="date"
                   aria-label="Date"
+                  tw="w-40"
                 />
                 <Input
                   variant="solid"
@@ -329,6 +330,7 @@ const App = () => {
                   type="time"
                   step="1"
                   aria-label="Time"
+                  tw="w-40"
                 />
               </DateTimeRow>
 
@@ -342,6 +344,7 @@ const App = () => {
                     id="endDate"
                     {...register('endDate')}
                     type="date"
+                    tw="w-40"
                   />
                   <Input
                     variant="solid"
@@ -350,6 +353,7 @@ const App = () => {
                     type="time"
                     step="1"
                     aria-label="Time"
+                    tw="w-40"
                   />
                 </DateTimeRow>
               )}
