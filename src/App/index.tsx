@@ -89,7 +89,7 @@ const RadioButton = styled.input`
   display: none;
 
   & + label {
-    ${tw`flex items-center justify-center box-border rounded px-4 h-11 text-base font-medium text-gray-800 select-none`}
+    ${tw`flex items-center justify-center box-border rounded px-4 h-11 text-base font-medium text-gray-800 select-none border-2 border-transparent`}
   }
 
   &:not(:checked) + label {
