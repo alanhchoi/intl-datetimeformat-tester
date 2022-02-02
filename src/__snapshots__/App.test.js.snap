@@ -7,59 +7,15 @@ exports[`renders learn react link 1`] = `
       class="App__Container-sc-1grf95z-0 hnPEHr"
     >
       <h1
-        class="sc-gKAaRy App___StyledHeading-sc-1grf95z-18 kNiOkG cElYlC"
+        class="sc-dlnjwi App___StyledHeading-sc-1grf95z-19 fkyCBH fVahUX"
       >
         Intl.DateTimeFormat Tester
       </h1>
       <div
-        class="App__Layout-sc-1grf95z-1 kRTgqz"
+        class="App__Layout-sc-1grf95z-1 MNaGZ"
       >
-        <aside
-          class="App__Aside-sc-1grf95z-15 ezuGlq"
-        >
-          <div>
-            <h2
-              class="Presets___StyledH-sc-12q1l4f-0 giZQDP"
-              id="presets__title"
-            >
-              Presets
-            </h2>
-            <select
-              aria-labelledby="presets__title"
-              class="sc-jSFjdj Presets___StyledSelect-sc-12q1l4f-1 fVdCod jBjxLw"
-              id="preset__select"
-            >
-              <option
-                disabled=""
-                selected=""
-                value=""
-              >
-                No presets
-              </option>
-            </select>
-            <hr
-              class="sc-eCApnc kvfmdr"
-            />
-            <div
-              class="Presets___StyledDiv-sc-12q1l4f-4 UpPZU"
-            >
-              <button
-                class="sc-gtsrHT hncqzl"
-                type="button"
-              >
-                Add to presets
-              </button>
-              <button
-                class="sc-gtsrHT hncqzl"
-                type="button"
-              >
-                Manage presets
-              </button>
-            </div>
-          </div>
-        </aside>
         <form
-          class="App__Form-sc-1grf95z-2 iWXDnI"
+          class="App__Form-sc-1grf95z-2 kZDjYl"
         >
           <section
             class="App__DateSection-sc-1grf95z-12 boyKit"
@@ -70,7 +26,7 @@ exports[`renders learn react link 1`] = `
               Date
             </h2>
             <fieldset
-              class="App___StyledFieldset-sc-1grf95z-19 bdvzaE"
+              class="App___StyledFieldset-sc-1grf95z-20 gXnzhi"
             >
               <p>
                 <input
@@ -102,7 +58,7 @@ exports[`renders learn react link 1`] = `
               </p>
             </fieldset>
             <div
-              class="App___StyledDiv-sc-1grf95z-20 gLTSDy"
+              class="App___StyledDiv-sc-1grf95z-21 hCtjvP"
             >
               <div
                 class="App__DateTimeRow-sc-1grf95z-11 kCwicr"
@@ -115,14 +71,14 @@ exports[`renders learn react link 1`] = `
                 </label>
                 <input
                   aria-label="Date"
-                  class="sc-hKFxyN HmHZy"
+                  class="sc-hKFxyN App__DateTimeInput-sc-1grf95z-17 HmHZy fEsBrJ"
                   id="date"
                   name="date"
                   type="date"
                 />
                 <input
                   aria-label="Time"
-                  class="sc-hKFxyN HmHZy"
+                  class="sc-hKFxyN App__DateTimeInput-sc-1grf95z-17 HmHZy fEsBrJ"
                   id="time"
                   name="time"
                   step="1"
@@ -134,24 +90,34 @@ exports[`renders learn react link 1`] = `
           <section
             class="App__FormatOptions-sc-1grf95z-14 iwLfrM"
           >
-            <h2
-              class="App__SectionHeading-sc-1grf95z-6 App___StyledSectionHeading2-sc-1grf95z-8 iIAwIq jBqypm"
+            <header
+              class="App___StyledHeader-sc-1grf95z-22 fjesHF"
             >
-              Format Options
-              <span
-                class="App___StyledSpan-sc-1grf95z-21 exKiFq"
+              <h2
+                class="App__SectionHeading-sc-1grf95z-6 App___StyledSectionHeading2-sc-1grf95z-8 iIAwIq cdiBhu"
               >
-                Learn more about these options at
-                 
-                <a
-                  class="sc-iCoGMd gQzRLD"
-                  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#parameters"
+                Format Options
+                <div
+                  class="App___StyledDiv2-sc-1grf95z-23 iIhDUt"
                 >
-                  MDN Web Docs
-                </a>
-                .
-              </span>
-            </h2>
+                  Learn more about these options at
+                   
+                  <a
+                    class="sc-eCApnc cWuYZe"
+                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#parameters"
+                  >
+                    MDN Web Docs
+                  </a>
+                  .
+                </div>
+              </h2>
+              <button
+                class="sc-jSFjdj cAWzbM"
+                type="button"
+              >
+                Clear all selections
+              </button>
+            </header>
             <div>
               <div
                 class="App__FormRow-sc-1grf95z-10 ggpiSO"
@@ -163,7 +129,7 @@ exports[`renders learn react link 1`] = `
                   dateStyle
                 </label>
                 <select
-                  class="sc-jSFjdj App__OptionSelect-sc-1grf95z-17 emgxYk hyMvf"
+                  class="sc-gtsrHT App__OptionSelect-sc-1grf95z-18 cUrDyN jxuQwU"
                   id="dateStyle"
                   name="dateStyle"
                 >
@@ -204,7 +170,7 @@ exports[`renders learn react link 1`] = `
                   timeStyle
                 </label>
                 <select
-                  class="sc-jSFjdj App__OptionSelect-sc-1grf95z-17 emgxYk hyMvf"
+                  class="sc-gtsrHT App__OptionSelect-sc-1grf95z-18 cUrDyN jxuQwU"
                   id="timeStyle"
                   name="timeStyle"
                 >
@@ -245,7 +211,7 @@ exports[`renders learn react link 1`] = `
                   timeZoneName
                 </label>
                 <select
-                  class="sc-jSFjdj App__OptionSelect-sc-1grf95z-17 emgxYk hyMvf"
+                  class="sc-gtsrHT App__OptionSelect-sc-1grf95z-18 cUrDyN jxuQwU"
                   id="timeZoneName"
                   name="timeZoneName"
                 >
@@ -294,7 +260,7 @@ exports[`renders learn react link 1`] = `
                   dayPeriod
                 </label>
                 <select
-                  class="sc-jSFjdj App__OptionSelect-sc-1grf95z-17 emgxYk hyMvf"
+                  class="sc-gtsrHT App__OptionSelect-sc-1grf95z-18 cUrDyN jxuQwU"
                   id="dayPeriod"
                   name="dayPeriod"
                 >
@@ -330,7 +296,7 @@ exports[`renders learn react link 1`] = `
                   hour12
                 </label>
                 <select
-                  class="sc-jSFjdj App__OptionSelect-sc-1grf95z-17 emgxYk hyMvf"
+                  class="sc-gtsrHT App__OptionSelect-sc-1grf95z-18 cUrDyN jxuQwU"
                   id="hour12"
                   name="hour12"
                 >
@@ -361,7 +327,7 @@ exports[`renders learn react link 1`] = `
                   hourCycle
                 </label>
                 <select
-                  class="sc-jSFjdj App__OptionSelect-sc-1grf95z-17 emgxYk hyMvf"
+                  class="sc-gtsrHT App__OptionSelect-sc-1grf95z-18 cUrDyN jxuQwU"
                   id="hourCycle"
                   name="hourCycle"
                 >
@@ -402,7 +368,7 @@ exports[`renders learn react link 1`] = `
                   weekday
                 </label>
                 <select
-                  class="sc-jSFjdj App__OptionSelect-sc-1grf95z-17 emgxYk hyMvf"
+                  class="sc-gtsrHT App__OptionSelect-sc-1grf95z-18 cUrDyN jxuQwU"
                   id="weekday"
                   name="weekday"
                 >
@@ -438,7 +404,7 @@ exports[`renders learn react link 1`] = `
                   year
                 </label>
                 <select
-                  class="sc-jSFjdj App__OptionSelect-sc-1grf95z-17 emgxYk hyMvf"
+                  class="sc-gtsrHT App__OptionSelect-sc-1grf95z-18 cUrDyN jxuQwU"
                   id="year"
                   name="year"
                 >
@@ -469,7 +435,7 @@ exports[`renders learn react link 1`] = `
                   month
                 </label>
                 <select
-                  class="sc-jSFjdj App__OptionSelect-sc-1grf95z-17 emgxYk hyMvf"
+                  class="sc-gtsrHT App__OptionSelect-sc-1grf95z-18 cUrDyN jxuQwU"
                   id="month"
                   name="month"
                 >
@@ -515,7 +481,7 @@ exports[`renders learn react link 1`] = `
                   day
                 </label>
                 <select
-                  class="sc-jSFjdj App__OptionSelect-sc-1grf95z-17 emgxYk hyMvf"
+                  class="sc-gtsrHT App__OptionSelect-sc-1grf95z-18 cUrDyN jxuQwU"
                   id="day"
                   name="day"
                 >
@@ -546,7 +512,7 @@ exports[`renders learn react link 1`] = `
                   hour
                 </label>
                 <select
-                  class="sc-jSFjdj App__OptionSelect-sc-1grf95z-17 emgxYk hyMvf"
+                  class="sc-gtsrHT App__OptionSelect-sc-1grf95z-18 cUrDyN jxuQwU"
                   id="hour"
                   name="hour"
                 >
@@ -577,7 +543,7 @@ exports[`renders learn react link 1`] = `
                   minute
                 </label>
                 <select
-                  class="sc-jSFjdj App__OptionSelect-sc-1grf95z-17 emgxYk hyMvf"
+                  class="sc-gtsrHT App__OptionSelect-sc-1grf95z-18 cUrDyN jxuQwU"
                   id="minute"
                   name="minute"
                 >
@@ -608,7 +574,7 @@ exports[`renders learn react link 1`] = `
                   second
                 </label>
                 <select
-                  class="sc-jSFjdj App__OptionSelect-sc-1grf95z-17 emgxYk hyMvf"
+                  class="sc-gtsrHT App__OptionSelect-sc-1grf95z-18 cUrDyN jxuQwU"
                   id="second"
                   name="second"
                 >
@@ -633,7 +599,7 @@ exports[`renders learn react link 1`] = `
           </section>
         </form>
         <section
-          class="App__Results-sc-1grf95z-16 glkNVJ"
+          class="App__Results-sc-1grf95z-16 fMoPLn"
         >
           <h2
             class="App__SectionHeading-sc-1grf95z-6 App___StyledSectionHeading3-sc-1grf95z-7 iIAwIq zoEeP"
@@ -663,20 +629,8 @@ exports[`renders learn react link 1`] = `
               >
                 ko-KR
               </h3>
-              <div
-                class="PresetPreview___StyledDiv-u0tkt7-0 hTAIXz"
-                role="alert"
-              >
-                <p
-                  class="PresetPreview___StyledP-u0tkt7-1 eMZBjj"
-                >
-                  Something went wrong:
-                </p>
-                <div
-                  class="PresetPreview___StyledDiv2-u0tkt7-2 StTlU"
-                >
-                  [@formatjs/intl Error MISSING_DATA] Missing locale data for locale: "ko-KR" in Intl.NumberFormat. Using default locale: "en" as fallback. See https://formatjs.io/docs/react-intl#runtime-requirements for more details 
-                </div>
+              <div>
+                2021. 5. 6.
               </div>
             </dd>
           </div>

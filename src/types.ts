@@ -14,5 +14,3 @@ export type DateTimeFormatOptions = {
   timeZone: string;
   hour12: boolean;
 };
-
-export type Preset = DateTimeFormatOptions;

@@ -1,13 +1,11 @@
 import { format, parse } from 'date-fns';
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import Modal from 'react-modal';
 import tw, { styled } from 'twin.macro';
 
 import Result from './Result';
-import Presets from './Presets';
-import { DateTimeFormatOptions, Preset } from './types';
-import convertPresetToYaml from './convertPresetToYaml';
+import { DateTimeFormatOptions } from './types';
 import filterEmptyProperties from './filterEmptyProperties';
 import Select from './components/Select';
 import Heading from './components/Heading';
@@ -23,9 +21,8 @@ type FormFieldValues = {
   endTime: string;
 } & DateTimeFormatOptions;
 
-type DateTimeFormatOption<
-  T extends keyof Intl.DateTimeFormatOptions
-> = NonNullable<Intl.DateTimeFormatOptions[T]>;
+type DateTimeFormatOption<T extends keyof Intl.DateTimeFormatOptions> =
+  NonNullable<Intl.DateTimeFormatOptions[T]>;
 
 type HourCycle = DateTimeFormatOption<'hourCycle'>;
 type DateStyle = DateTimeFormatOption<'dateStyle'>;
@@ -67,19 +64,19 @@ if (rootElement) {
 const Container = tw.div`p-12`;
 
 const Layout = styled.div`
-  ${tw`gap-x-8 grid`}
-  grid-template-columns: minmax(12rem, 1fr) minmax(640px, 2fr) 2fr;
-  grid-template-areas: 'aside form results';
+  ${tw`gap-x-8 flex flex-row`}
 
   @media (max-width: 80rem) {
+    ${tw`flex-col`}
     grid-template-columns: 12rem minmax(640px, 1fr);
-    grid-template-areas: 'aside form' 'aside results';
+    grid-template-areas: 'form' 'aside results';
   }
 `;
 
 const Form = styled.form`
   ${tw`flex flex-col space-y-10`}
-
+  min-width: 640px;
+  flex: 1;
   grid-area: form;
 `;
 
@@ -137,7 +134,7 @@ const Aside = styled.aside`
 `;
 
 const Results = styled.section`
-  grid-area: results;
+  flex: 1;
   min-width: 0;
 `;
 
@@ -146,11 +143,6 @@ const DateTimeInput = tw(Input)`w-44`;
 const OptionSelect = tw(Select)`font-mono font-bold`;
 
 const App = () => {
-  const [preset, setPreset] = useState<{
-    name: string;
-    formatOptions: Preset;
-  } | null>(null);
-
   const { register, watch, getValues, reset } = useForm<FormFieldValues>({
     defaultValues: {
       mode: 'default',
@@ -183,7 +175,7 @@ const App = () => {
     hour12,
   } = watch();
 
-  const formatOptions: Preset = useMemo(
+  const formatOptions: DateTimeFormatOptions = useMemo(
     () => ({
       hourCycle,
       dateStyle,
@@ -217,15 +209,6 @@ const App = () => {
       year,
     ]
   );
-
-  useEffect(() => {
-    const { mode, date, time, endDate, endTime } = getValues();
-    reset(
-      preset
-        ? { ...preset.formatOptions, mode, date, time, endDate, endTime }
-        : undefined
-    );
-  }, [getValues, preset, reset]);
 
   const renderSelect = ({
     label,
@@ -265,18 +248,9 @@ const App = () => {
 
   const options = filterEmptyProperties(formatOptions);
 
-  const isPresetEdited = useMemo(() => {
-    return (
-      !!preset &&
-      convertPresetToYaml(preset.formatOptions) !==
-        convertPresetToYaml(formatOptions)
-    );
-  }, [formatOptions, preset]);
-
   const clearAllSelections = () => {
     const { mode, date, time, endDate, endTime } = getValues();
     reset({ mode, date, time, endDate, endTime });
-    setPreset(null);
   };
 
   return (
@@ -284,17 +258,6 @@ const App = () => {
       <Heading tw="mb-8 whitespace-nowrap">Intl.DateTimeFormat Tester</Heading>
 
       <Layout>
-        <Aside>
-          <Presets
-            getValues={getValues}
-            onSelect={(name, formatOptions) => {
-              setPreset({ name, formatOptions });
-            }}
-            isEdited={isPresetEdited}
-            selectedPresetName={preset?.name}
-          />
-        </Aside>
-
         <Form>
           <DateSection>
             <SectionHeading tw="w-full mb-3">Date</SectionHeading>

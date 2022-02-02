@@ -1,8 +1,8 @@
-import { Preset } from './types';
+import { DateTimeFormatOptions } from './types';
 
-const filterEmptyProperties = (preset: Preset) => {
-  return Object.entries(preset)
-    .filter(([key, value]) => {
+const filterEmptyProperties = (obj: DateTimeFormatOptions) => {
+  return Object.entries(obj)
+    .filter(([, value]) => {
       return typeof value === 'boolean' || !!value;
     })
     .reduce<any>((acc, [key, value]) => {

@@ -4,14 +4,14 @@ import { IntlProvider, useIntl } from 'react-intl';
 import 'twin.macro';
 
 import filterEmptyProperties from './filterEmptyProperties';
-import { Preset } from './types';
+import { DateTimeFormatOptions } from './types';
 
 type Props = {
   locale: string;
   mode: 'default' | 'range';
   date: Date;
   endDate?: Date;
-  options: Preset;
+  options: DateTimeFormatOptions;
 };
 
 const ErrorFallback: FC<{ error: any }> = ({ error }) => {
@@ -38,7 +38,7 @@ const Content: FC<Props> = ({ mode, date, endDate, options }) => {
   );
 };
 
-const PresetPreview: FC<Props> = (props) => {
+const Preview: FC<Props> = (props) => {
   return (
     <ErrorBoundary
       FallbackComponent={ErrorFallback}
@@ -67,4 +67,4 @@ const PresetPreview: FC<Props> = (props) => {
   );
 };
 
-export default PresetPreview;
+export default Preview;
