@@ -1,6 +1,7 @@
 import { format, parse } from 'date-fns';
 import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
+import { FormatDateOptions } from 'react-intl';
 import Modal from 'react-modal';
 import tw, { styled } from 'twin.macro';
 
@@ -12,7 +13,7 @@ import Heading from '../components/Heading';
 import Input from '../components/Input';
 import Link from '../components/Link';
 import Button from '../components/Button';
-
+import CopyButton from '../components/CopyButton';
 import {
   dateStyles,
   timeStyles,
@@ -157,8 +158,8 @@ const App = () => {
     hour12,
   } = watch();
 
-  const formatOptions: DateTimeFormatOptions = useMemo(
-    () => ({
+  const options: FormatDateOptions = useMemo(() => {
+    const selectedOptions = {
       hourCycle,
       dateStyle,
       timeStyle,
@@ -173,24 +174,37 @@ const App = () => {
       timeZoneName,
       timeZone,
       hour12,
-    }),
-    [
-      dateStyle,
-      day,
-      dayPeriod,
-      hour,
-      hour12,
-      hourCycle,
-      minute,
-      month,
-      second,
-      timeStyle,
-      timeZone,
-      timeZoneName,
-      weekday,
-      year,
-    ]
-  );
+    };
+
+    function convertHour12ValueToBoolean(obj: DateTimeFormatOptions) {
+      return Object.entries(obj).reduce<FormatDateOptions>(
+        (acc, [key, value]) => {
+          if (key === 'hour12') {
+            return { ...acc, hour12: value === Hour12Options.True };
+          }
+          return { ...acc, [key]: value };
+        },
+        {}
+      );
+    }
+
+    return convertHour12ValueToBoolean(filterEmptyProperties(selectedOptions));
+  }, [
+    dateStyle,
+    day,
+    dayPeriod,
+    hour,
+    hour12,
+    hourCycle,
+    minute,
+    month,
+    second,
+    timeStyle,
+    timeZone,
+    timeZoneName,
+    weekday,
+    year,
+  ]);
 
   const renderSelect = ({
     label,
@@ -227,8 +241,6 @@ const App = () => {
       </FormRow>
     );
   };
-
-  const options = filterEmptyProperties(formatOptions);
 
   const clearAllSelections = () => {
     const { mode, date, time, endDate, endTime } = getValues();
@@ -311,7 +323,7 @@ const App = () => {
           </DateSection>
 
           <FormatOptions>
-            <header tw="flex justify-between w-full mb-2">
+            <header tw="flex flex-col w-full mb-2">
               <SectionHeading tw="w-full mb-3 flex flex-col">
                 Format Options
                 <div tw="text-base font-normal">
@@ -322,14 +334,19 @@ const App = () => {
                   .
                 </div>
               </SectionHeading>
-              <Button
-                type="button"
-                variant="outline"
-                size="sm"
-                onClick={clearAllSelections}
-              >
-                Clear all selections
-              </Button>
+              <div tw="flex space-x-2 justify-end">
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={clearAllSelections}
+                >
+                  Clear all selections
+                </Button>
+                <CopyButton contentToCopy={JSON.stringify(options)}>
+                  Copy as JSON
+                </CopyButton>
+              </div>
             </header>
             {renderSelect({
               label: 'dateStyle',

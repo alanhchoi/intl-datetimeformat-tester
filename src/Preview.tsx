@@ -1,17 +1,14 @@
 import { FC } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-import { IntlProvider, useIntl } from 'react-intl';
+import { FormatDateOptions, IntlProvider, useIntl } from 'react-intl';
 import 'twin.macro';
-
-import filterEmptyProperties from './filterEmptyProperties';
-import { DateTimeFormatOptions } from './types';
 
 type Props = {
   locale: string;
   mode: 'default' | 'range';
   date: Date;
   endDate?: Date;
-  options: DateTimeFormatOptions;
+  options: FormatDateOptions;
 };
 
 const ErrorFallback: FC<{ error: any }> = ({ error }) => {
@@ -28,12 +25,11 @@ const ErrorFallback: FC<{ error: any }> = ({ error }) => {
 
 const Content: FC<Props> = ({ mode, date, endDate, options }) => {
   const intl = useIntl();
-  const optionsWithoutEmptyProps = filterEmptyProperties(options);
   return (
     <div>
       {mode === 'range' && endDate
-        ? intl.formatDateTimeRange(date, endDate, optionsWithoutEmptyProps)
-        : intl.formatDate(date, optionsWithoutEmptyProps)}
+        ? intl.formatDateTimeRange(date, endDate, options)
+        : intl.formatDate(date, options)}
     </div>
   );
 };

@@ -1,3 +1,5 @@
+import { Hour12Options } from './App/constants';
+
 export type DateTimeFormatOptions = {
   hourCycle: string;
   dateStyle: string;
@@ -12,5 +14,5 @@ export type DateTimeFormatOptions = {
   second: string;
   timeZoneName: string;
   timeZone: string;
-  hour12: boolean;
+  hour12: Hour12Options;
 };

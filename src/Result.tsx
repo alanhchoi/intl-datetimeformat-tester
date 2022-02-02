@@ -1,15 +1,9 @@
-import { FC } from 'react';
+import { ComponentProps, FC } from 'react';
 import 'twin.macro';
 import Card from './components/Card';
 import Preview from './Preview';
-import { DateTimeFormatOptions } from './types';
 
-type Props = {
-  mode: 'default' | 'range';
-  date: Date;
-  endDate?: Date;
-  options: DateTimeFormatOptions;
-};
+type Props = Omit<ComponentProps<typeof Preview>, 'locale'>;
 
 const locales = ['en-US', 'ko-KR'];
 
