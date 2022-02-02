@@ -7630,7 +7630,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.3.0":
+"eslint@npm:^8.3.0, eslint@npm:^8.8.0":
   version: 8.8.0
   resolution: "eslint@npm:8.8.0"
   dependencies:
@@ -9039,6 +9039,7 @@ __metadata:
     "@types/yaml": ^1.9.7
     copy-to-clipboard: ^3.3.1
     date-fns: ^2.21.2
+    eslint: ^8.8.0
     file-saver: ^2.0.5
     framer-motion: ^6.2.3
     husky: ^7.0.4

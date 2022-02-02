@@ -112,10 +112,6 @@ const FormatOptions = styled.section`
   }
 `;
 
-const Aside = styled.aside`
-  grid-area: aside;
-`;
-
 const Results = styled.section`
   flex: 1;
   min-width: 0;
