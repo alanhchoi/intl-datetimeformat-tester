@@ -4,14 +4,30 @@ import { useForm } from 'react-hook-form';
 import Modal from 'react-modal';
 import tw, { styled } from 'twin.macro';
 
-import Result from './Result';
-import { DateTimeFormatOptions } from './types';
-import filterEmptyProperties from './filterEmptyProperties';
-import Select from './components/Select';
-import Heading from './components/Heading';
-import Input from './components/Input';
-import Link from './components/Link';
-import Button from './components/Button';
+import Result from '../Result';
+import { DateTimeFormatOptions } from '../types';
+import filterEmptyProperties from '../filterEmptyProperties';
+import Select from '../components/Select';
+import Heading from '../components/Heading';
+import Input from '../components/Input';
+import Link from '../components/Link';
+import Button from '../components/Button';
+
+import {
+  dateStyles,
+  timeStyles,
+  timeZoneNames,
+  dayPeriods,
+  hourCycles,
+  weekdays,
+  years,
+  months,
+  days,
+  hours,
+  minutes,
+  seconds,
+  Hour12Options,
+} from './constants';
 
 type FormFieldValues = {
   mode: 'default' | 'range';
@@ -20,40 +36,6 @@ type FormFieldValues = {
   endDate: string;
   endTime: string;
 } & DateTimeFormatOptions;
-
-type DateTimeFormatOption<T extends keyof Intl.DateTimeFormatOptions> =
-  NonNullable<Intl.DateTimeFormatOptions[T]>;
-
-type HourCycle = DateTimeFormatOption<'hourCycle'>;
-type DateStyle = DateTimeFormatOption<'dateStyle'>;
-type TimeStyle = DateTimeFormatOption<'timeStyle'>;
-type DayPeriod = DateTimeFormatOption<'dayPeriod'>;
-type Weekday = DateTimeFormatOption<'weekday'>;
-type Year = DateTimeFormatOption<'year'>;
-type Month = DateTimeFormatOption<'month'>;
-type Day = DateTimeFormatOption<'day'>;
-type Hour = DateTimeFormatOption<'hour'>;
-type Minute = DateTimeFormatOption<'minute'>;
-type Second = DateTimeFormatOption<'second'>;
-type TimeZoneName = DateTimeFormatOption<'timeZoneName'>;
-
-const hourCycles: HourCycle[] = ['h11', 'h12', 'h23', 'h24'];
-const dateStyles: DateStyle[] = ['full', 'long', 'medium', 'short'];
-const timeStyles: TimeStyle[] = ['full', 'long', 'medium', 'short'];
-const dayPeriods: DayPeriod[] = ['long', 'short', 'narrow'];
-const weekdays: Weekday[] = ['long', 'short', 'narrow'];
-const years: Year[] = ['numeric', '2-digit'];
-const months: Month[] = ['numeric', '2-digit', 'long', 'short', 'narrow'];
-const days: Day[] = ['numeric', '2-digit'];
-const hours: Hour[] = ['numeric', '2-digit'];
-const minutes: Minute[] = ['numeric', '2-digit'];
-const seconds: Second[] = ['numeric', '2-digit'];
-const timeZoneNames: TimeZoneName[] = ['long', 'short'];
-
-enum Boolean {
-  True = 'true',
-  False = 'false',
-}
 
 const rootElement = document.getElementById('root');
 
@@ -386,7 +368,7 @@ const App = () => {
             {renderSelect({
               label: 'hour12',
               name: 'hour12',
-              options: [Boolean.True, Boolean.False],
+              options: [Hour12Options.True, Hour12Options.False],
             })}
 
             {renderSelect({
