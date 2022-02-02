@@ -349,97 +349,93 @@ const App = () => {
                 Clear all selections
               </Button>
             </header>
-            <div>
-              {renderSelect({
-                label: 'dateStyle',
-                name: 'dateStyle',
-                options: dateStyles,
-              })}
+            {renderSelect({
+              label: 'dateStyle',
+              name: 'dateStyle',
+              options: dateStyles,
+            })}
 
-              {renderSelect({
-                label: 'timeStyle',
-                name: 'timeStyle',
-                options: timeStyles,
-              })}
+            {renderSelect({
+              label: 'timeStyle',
+              name: 'timeStyle',
+              options: timeStyles,
+            })}
 
-              {renderSelect({
-                label: 'timeZoneName',
-                name: 'timeZoneName',
-                options: timeZoneNames,
-              })}
+            {renderSelect({
+              label: 'timeZoneName',
+              name: 'timeZoneName',
+              options: timeZoneNames,
+            })}
 
-              <FormRow>
-                <Label htmlFor="timeZone">timeZone</Label>
-                <Input
-                  variant="solid"
-                  id="timeZone"
-                  type="text"
-                  {...register('timeZone')}
-                />
-              </FormRow>
-            </div>
+            <FormRow>
+              <Label htmlFor="timeZone">timeZone</Label>
+              <Input
+                variant="solid"
+                id="timeZone"
+                type="text"
+                {...register('timeZone')}
+              />
+            </FormRow>
 
-            <div>
-              {renderSelect({
-                label: 'dayPeriod',
-                name: 'dayPeriod',
-                options: dayPeriods,
-              })}
+            {renderSelect({
+              label: 'dayPeriod',
+              name: 'dayPeriod',
+              options: dayPeriods,
+            })}
 
-              {renderSelect({
-                label: 'hour12',
-                name: 'hour12',
-                options: [Boolean.True, Boolean.False],
-              })}
+            {renderSelect({
+              label: 'hour12',
+              name: 'hour12',
+              options: [Boolean.True, Boolean.False],
+            })}
 
-              {renderSelect({
-                label: 'hourCycle',
-                name: 'hourCycle',
-                options: hourCycles,
-              })}
+            {renderSelect({
+              label: 'hourCycle',
+              name: 'hourCycle',
+              options: hourCycles,
+            })}
 
-              {renderSelect({
-                label: 'weekday',
-                name: 'weekday',
-                options: weekdays,
-              })}
+            {renderSelect({
+              label: 'weekday',
+              name: 'weekday',
+              options: weekdays,
+            })}
 
-              {renderSelect({
-                label: 'year',
-                name: 'year',
-                options: years,
-              })}
+            {renderSelect({
+              label: 'year',
+              name: 'year',
+              options: years,
+            })}
 
-              {renderSelect({
-                label: 'month',
-                name: 'month',
-                options: months,
-              })}
+            {renderSelect({
+              label: 'month',
+              name: 'month',
+              options: months,
+            })}
 
-              {renderSelect({
-                label: 'day',
-                name: 'day',
-                options: days,
-              })}
+            {renderSelect({
+              label: 'day',
+              name: 'day',
+              options: days,
+            })}
 
-              {renderSelect({
-                label: 'hour',
-                name: 'hour',
-                options: hours,
-              })}
+            {renderSelect({
+              label: 'hour',
+              name: 'hour',
+              options: hours,
+            })}
 
-              {renderSelect({
-                label: 'minute',
-                name: 'minute',
-                options: minutes,
-              })}
+            {renderSelect({
+              label: 'minute',
+              name: 'minute',
+              options: minutes,
+            })}
 
-              {renderSelect({
-                label: 'second',
-                name: 'second',
-                options: seconds,
-              })}
-            </div>
+            {renderSelect({
+              label: 'second',
+              name: 'second',
+              options: seconds,
+            })}
           </FormatOptions>
         </Form>
 
